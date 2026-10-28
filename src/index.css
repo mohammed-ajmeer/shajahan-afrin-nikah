@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --iv-bg: #fbf8f1;
+  --iv-accent: #7e8b5e;
+  --iv-on-accent: #faf6ec;
+  --iv-accent-soft: #c49a5a;
+  --iv-ink: #26231d;
+  --nw-halo: 0 0 0 rgba(0, 0, 0, 0);
+  --nw-halo-accent: 0 0 6px rgba(255, 255, 255, 1), 0 0 14px rgba(255, 255, 255, 0.95), 0 0 30px rgba(255, 255, 255, 0.85), 0 0 56px rgba(255, 255, 255, 0.6);
+  --nw-plate-bg: rgba(0, 0, 0, 0);
+  --iv-muted: rgba(38, 35, 29, 0.78);
+  --iv-surface: rgba(255, 255, 255, 0.68);
+  --iv-line: rgba(38, 35, 29, 0.32);
+  --iv-chip: rgba(255, 252, 244, 0.68);
+  --ow-bg: #fbf8f1;
+  --ow-surface: #f4efe3;
+  --ow-sage: #7e8b5e;
+  --ow-sage-deep: #4f5c3a;
+  --ow-ochre: #c49a5a;
+  --ow-ochre-dark: #b58851;
+  --ow-ink: #2a2a2a;
+  --ow-taupe: #9c9080;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Spectral', 'Georgia', serif;
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, #efe3cf 0%, #e4d4bc 55%, #d9c6ab 100%);
+  min-height: 100vh;
+  color: var(--iv-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* RTL Typography adjustments */
+[dir="rtl"] .font-tenor {
+  text-transform: none;
+  font-family: 'Amiri', serif;
+  font-size: 1.15em;
+  letter-spacing: 0.05em;
+}
+
+[dir="rtl"] .font-body {
+  font-family: 'Amiri', 'Spectral', serif;
+  font-size: 1.15em;
+  line-height: 1.8;
+}
+
+/* Animations */
+@keyframes nw-breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.012);
+  }
+}
+
+.nw-breathe {
+  transform-origin: 50% 100%;
+  animation: 6.5s ease-in-out infinite nw-breathe;
+}
+
+@keyframes nw-beckon {
+
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.nw-beckon {
+  animation: 2.6s ease-in-out infinite nw-beckon;
+}
+
+@keyframes nw-sheen {
+  0% {
+    background-position: 130% 0;
+  }
+
+  100% {
+    background-position: -30% 0;
+  }
+}
+
+.nw-sheen {
+  background-image: linear-gradient(105deg, transparent 42%, rgba(255, 250, 235, 0.22) 50%, transparent 58%);
+  background-repeat: no-repeat;
+  background-size: 320% 100%;
+  animation: 7.5s ease-in-out infinite nw-sheen;
+}
+
+@keyframes nw-scroll-bob {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.nw-scroll-bob {
+  animation: 2.2s ease-in-out infinite nw-scroll-bob;
+}
+
+@keyframes nw-sway {
+
+  0%,
+  100% {
+    transform: rotate(-0.5deg);
+  }
+
+  50% {
+    transform: rotate(0.5deg);
+  }
+}
+
+.nw-sway {
+  transform-origin: 50% 100%;
+  animation: 11s ease-in-out infinite nw-sway;
+}
+
+/* Subtle letterpress and stationery card effects */
+.nw-letterpress {
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8), 0 -1px 1px rgba(0, 0, 0, 0.06);
+}
+
+.nw-stationery {
+  position: relative;
+}
+
+.nw-stationery::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(126, 139, 94, 0.28);
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.nw-panel {
+  background: radial-gradient(105% 100%, rgba(255, 251, 240, 0.82), rgba(255, 251, 240, 0.65) 55%, rgba(255, 251, 240, 0.35) 80%, transparent);
+}
+
+.nw-spine-input {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(126, 139, 94, 0.35);
+  color: var(--iv-ink);
+  transition: all 0.2s ease;
+}
+
+.nw-spine-input:focus {
+  border-color: var(--iv-accent);
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(126, 139, 94, 0.2);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(126, 139, 94, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 139, 94, 0.5);
+}
